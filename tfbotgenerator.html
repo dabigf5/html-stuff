@@ -1,0 +1,70 @@
+<html>
+<head><title>TF2 Bot Generator</title></head>
+
+
+
+<body>
+<br>Name<br>
+<select id="nametype">
+ <option value="manual">Manual</option>
+ <option value="generator">Generator</option>
+</select>
+
+
+<input id="BotName" type="Text"></input><br><button onclick="namingswap()">Go</button><br> <!-- Name of bot --> 
+<br>Team<br>
+<select id="Team"> <!-- Team selection -->
+  <option value="red">RED</option>
+  <option value="blue">BLU</option> 
+</select>
+<br>
+<br>Class<br> <!-- Class of bot -->
+<select id="TFClass">
+ <option value="scout">Scout</option>
+ <option value="soldier">Soldier</option>
+ <option value="pyro">Pyro</option>
+ <option value="demoman">Demoman</option>
+ <option value="heavyweapons">Heavy</option>
+ <option value="engineer">Engineer</option>
+ <option value="medic">Medic</option>
+ <option value="sniper">Sniper</option>
+ <option value="spy">Spy</option>
+</select><br><br><br><button onclick="makethecommand()">Make that command</button><br>
+<input type="text" id="output"></input> <button onclick="copythattext()">Copy</button>
+
+
+</body>
+<script>
+
+
+
+var copyText = ""; // Making copytext a var
+
+
+
+function copythattext() // Copy text function
+	{
+	copyText = document.getElementById("output"); // Redefining the copytext var
+	copyText.select();
+	copyText.setSelectionRange(0, 99999)
+	document.execCommand("copy");
+	// alert("Copied the text: " + copyText.value);
+	}
+
+ 
+
+
+function makethecommand()
+	{
+	document.getElementById("output").value = "tf_bot_add 1 " + document.getElementById("Team").value + " " + document.getElementById("TFClass").value + ' "' + document.getElementById("BotName").value + '"';
+	}
+	
+	
+	
+function namingswap()
+	{
+	
+	}
+</script>
+
+</html>
